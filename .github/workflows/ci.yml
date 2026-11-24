@@ -20,7 +20,7 @@ env:
 jobs:
   frontend-quality:
     name: Frontend Tests & Quality Checks
-    runs-on: macos-15
+    runs-on: blacksmith-6vcpu-macos-15
 
     steps:
       - uses: actions/checkout@v4
@@ -139,7 +139,7 @@ jobs:
 
   rust-quality:
     name: Rust Tests & Quality Checks
-    runs-on: macos-15
+    runs-on: blacksmith-6vcpu-macos-15
 
     steps:
       - uses: actions/checkout@v4
@@ -195,7 +195,7 @@ jobs:
 
   linux-build:
     name: Linux build verification
-    runs-on: ubuntu-22.04
+    runs-on: blacksmith-2vcpu-ubuntu-2204
 
     steps:
       - uses: actions/checkout@v4

@@ -10,7 +10,7 @@ on:
 jobs:
   update-prs:
     name: Update open PR branches
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-2vcpu-ubuntu-2604
     permissions:
       contents: write
       pull-requests: write

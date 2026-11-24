@@ -28,7 +28,7 @@ jobs:
   # ─────────────────────────────────────────────────────────────
   version:
     name: Compute alpha version
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-2vcpu-ubuntu-2604
     outputs:
       version: ${{ steps.ver.outputs.version }}
       display_version: ${{ steps.ver.outputs.display_version }}
@@ -130,7 +130,7 @@ jobs:
   build:
     name: Build (${{ matrix.arch }})
     needs: version
-    runs-on: macos-15
+    runs-on: blacksmith-6vcpu-macos-15
     strategy:
       fail-fast: true
       matrix:
@@ -325,7 +325,7 @@ jobs:
   build-linux:
     name: Build (linux-x86_64)
     needs: version
-    runs-on: ubuntu-22.04
+    runs-on: blacksmith-2vcpu-ubuntu-2204
 
     steps:
       - uses: actions/checkout@v4
@@ -439,7 +439,7 @@ jobs:
   build-windows:
     name: Build (windows-x86_64)
     needs: version
-    runs-on: windows-latest
+    runs-on: blacksmith-2vcpu-windows-2025
 
     steps:
       - uses: actions/checkout@v4
@@ -574,7 +574,7 @@ jobs:
   release:
     name: GitHub Release (alpha)
     needs: [version, build, build-linux, build-windows]
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-2vcpu-ubuntu-2604
     permissions:
       contents: write
       pages: write
@@ -777,7 +777,7 @@ jobs:
   pages:
     name: Update docs and release pages
     needs: [version, release]
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-2vcpu-ubuntu-2604
     permissions:
       contents: read
       pages: write
